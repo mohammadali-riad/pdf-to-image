@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PDF to Image Converter | Extract High Quality Images from PDF</title>
+    <meta name="description" content="Free professional PDF to image converter. Extract high quality JPG, PNG, WebP, BMP, TIFF from PDF files. No upload needed, 100% private, works in your browser.">
+    <meta name="keywords" content="PDF to image, PDF to JPG, PDF to PNG, extract images from PDF, PDF converter, free PDF tool">
+    <meta name="author" content="Mohammad Ali">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mohammadali-riad.github.io/pdf-to-image">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="PDF to Image Converter - Extract High Quality Images">
+    <meta property="og:description" content="Convert PDF pages to high quality images. Free, fast, and private. No upload needed.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mohammadali-riad.github.io/preview.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PDF to Image Converter">
+    <meta name="twitter:description" content="Extract high quality images from PDF files. Free and private.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF to Image Converter",
+    "description": "Convert PDF pages to high quality images directly in your browser",
+    "applicationCategory": "Utility",
+    "operatingSystem": "Any",
+    "creator": {
+        "@type": "Person",
+        "name": "Mohammad Ali",
+        "url": "https://mohammadali-riad.github.io/"
+    },
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
+}
+</script>
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF<span>2</span>Image</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-to">Guide</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">
+            <i class="fas fa-bolt"></i> 100% Private · No Upload
+        </div>
+        <h1>PDF to <span class="gradient">Image</span> Converter</h1>
+        <p class="hero-subtitle">Extract every page as a high quality image. JPG, PNG, WebP, BMP, TIFF.</p>
+        <div class="trust-badges">
+            <span><i class="fas fa-shield-alt"></i> Your files stay local</span>
+            <span><i class="fas fa-tachometer-alt"></i> Instant conversion</span>
+            <span><i class="fas fa-infinity"></i> No file limits</span>
+        </div>
+    </div>
+</section>
+
+<!-- Converter Card -->
+<div class="container">
+    <div class="converter-card">
+        <!-- Upload Area -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="pdfInput" accept=".pdf" multiple>
+            <div class="upload-content">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drop PDF files here</h3>
+                <p>or click to browse · Multiple files allowed</p>
+            </div>
+        </div>
+
+        <!-- Simple Settings -->
+        <div class="settings-panel">
+            <div class="settings-grid">
+                <!-- Format Selection -->
+                <div class="setting-group">
+                    <label><i class="fas fa-image"></i> Output Format</label>
+                    <div class="format-selector">
+                        <button class="format-btn active" data-format="jpg">JPG</button>
+                        <button class="format-btn" data-format="png">PNG</button>
+                        <button class="format-btn" data-format="webp">WebP</button>
+                        <button class="format-btn" data-format="bmp">BMP</button>
+                        <button class="format-btn" data-format="tiff">TIFF</button>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="setting-group">
+                    <label><i class="fas fa-crop-alt"></i> Options</label>
+                    <div class="checkbox-row">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoCrop" checked> Remove white borders
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="zipDownload"> Download as ZIP
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Convert Button -->
+        <button id="convertBtn" class="convert-btn">
+            <i class="fas fa-sync-alt"></i>
+            <span>Convert to Images</span>
+        </button>
+
+        <!-- Progress -->
+        <div id="progressArea" class="progress-area" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressMessage" class="progress-message">Processing...</p>
+        </div>
+
+        <!-- Results -->
+        <div id="resultsArea" class="results-area"></div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="container">
+        <h2 class="section-title">Why Use <span class="gradient">PDF2Image</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-eye-slash"></i></div>
+                <h3>Complete Privacy</h3>
+                <p>All conversion happens in your browser. Your PDFs never leave your computer.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                <h3>Maximum Quality</h3>
+                <p>Extract images at original resolution. No compression or quality loss.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-crop-alt"></i></div>
+                <h3>Smart Auto-Crop</h3>
+                <p>Automatically removes white borders. Get only the content you need.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>5 Output Formats</h3>
+                <p>JPG, PNG, WebP, BMP, TIFF — choose what works best for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How To Section -->
+<section id="how-to" class="howto-section">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Upload PDF</h3>
+                <p>Drag & drop or click to select</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Choose Format</h3>
+                <p>JPG, PNG, WebP, BMP, or TIFF</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Convert</h3>
+                <p>Click and wait seconds</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Download</h3>
+                <p>Save your high quality images</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-file-pdf"></i> PDF<span>2</span>Image
+            </div>
+            <div class="footer-credit">
+                Created by 
+                <a href="https://mohammadali-riad.github.io/" target="_blank" class="credit-link">
+                    Mohammad Ali
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            <div class="footer-meta">
+                <i class="fas fa-shield-alt"></i> 100% Local Processing
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 PDF2Image · All conversions done locally in your browser · No data stored</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
